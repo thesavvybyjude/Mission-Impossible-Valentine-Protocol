@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMF Secure Uplink | Mission Generator</title>
-    
+
     <!-- IMF Fonts & Animations -->
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/ui.css">
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/icon.svg">
 </head>
+
 <body class="mission-sender-body">
 
     <!-- Background Grid / Overlay -->
@@ -18,7 +21,7 @@
     <div class="noise"></div>
 
     <div class="container">
-        
+
         <!-- Header Section -->
         <header class="mission-header fade-in-down">
             <h1 class="glitch-text" data-text="MISSION: VALENTINE">MISSION: VALENTINE</h1>
@@ -34,17 +37,19 @@
 
             <div class="panel-body">
                 <form id="mission-form" onsubmit="return false;">
-                    
+
                     <!-- Sender Codename -->
                     <div class="form-group">
                         <label for="sender-codename">AGENT CODENAME (YOU)</label>
-                        <input type="text" id="sender-codename" class="terminal-input" placeholder="e.g. ETHAN HUNT" autocomplete="off">
+                        <input type="text" id="sender-codename" class="terminal-input" placeholder="e.g. ETHAN HUNT"
+                            autocomplete="off">
                     </div>
 
                     <!-- Receiver Codename -->
                     <div class="form-group">
                         <label for="receiver-codename">TARGET CODENAME (THEM)</label>
-                        <input type="text" id="receiver-codename" class="terminal-input" placeholder="e.g. BENJI" required autocomplete="off">
+                        <input type="text" id="receiver-codename" class="terminal-input" placeholder="e.g. BENJI"
+                            required autocomplete="off">
                     </div>
 
                     <!-- Tone Selection -->
@@ -60,7 +65,8 @@
                     <!-- Custom Message -->
                     <div class="form-group">
                         <label for="custom-message">CLASSIFIED INTEL (OPTIONAL MESSAGE)</label>
-                        <textarea id="custom-message" class="terminal-textarea" rows="3" placeholder="Add custom directives..."></textarea>
+                        <textarea id="custom-message" class="terminal-textarea" rows="3"
+                            placeholder="Add custom directives..."></textarea>
                     </div>
 
                     <!-- Action Area -->
@@ -73,7 +79,7 @@
 
                 </form>
             </div>
-            
+
             <div class="panel-footer">
                 <div class="security-level">SECURITY LEVEL: TOP SECRET</div>
                 <div class="id-hash">ID: <span id="session-id">8492-XJ-9</span></div>
@@ -89,4 +95,5 @@
     <script type="module" src="assets/js/create.js"></script>
 
 </body>
+
 </html>
