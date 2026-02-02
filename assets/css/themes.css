@@ -1,0 +1,41 @@
+/**
+ * Themes & Color Variables
+ * Defines the core color palette and tone-specific variables.
+ * Palette based on user upload: Deep Brown, Maroon, Crimson, Berry, Cream.
+ */
+
+:root {
+    /* Main Theme Palette */
+    --bg-color: #1E0F0A;
+    /* Deepest Brown/Black */
+    --surface-color: #3D0E10;
+    /* Dark Maroon */
+    --primary-accent: #7D1219;
+    /* Crimson Red */
+    --secondary-accent: #A32442;
+    /* Berry/Magenta */
+    --text-main: #F6F0E6;
+    /* Cream */
+
+    /* Functional Colors (Mapped to Palette) */
+    --success-color: #A32442;
+    /* Berry (Success shouldn't be green if requested) or maybe Cream */
+    --error-color: #7D1219;
+    /* Crimson */
+    --warning-color: #F6F0E6;
+    /* Cream used for warning to avoid non-palette colors */
+
+    /* Tone Specific Variables (Strictly from Palette) */
+    /* NO GREENS allowed */
+    --playful-color: #A32442;
+    /* Berry/Magenta for "Playful" */
+    --romantic-color: #7D1219;
+    /* Crimson for "Romantic" */
+    --dramatic-color: #F6F0E6;
+    /* Cream for "Dramatic" (High contrast) or use Red again? Let's use Cream for the text/terminal look */
+
+    /* Layout Dimensions */
+    --header-height: 60px;
+    --panel-radius: 8px;
+    --border-width: 2px;
+}

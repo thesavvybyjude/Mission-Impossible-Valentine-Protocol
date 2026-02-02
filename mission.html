@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMF Secure Uplink | Mission Briefing</title>
+
+    <!-- IMF Fonts & Animations -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/ui.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+</head>
+
+<body class="mission-receiver-body">
+
+    <!-- Background Grid / Overlay -->
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <div class="container center-content">
+
+        <!-- Click to Start / Fullscreen Overlay -->
+        <div id="start-overlay" class="start-overlay cursor-pointer">
+            <div class="overlay-content">
+                <div class="lock-icon glitch-effect">🔒</div>
+                <h2 class="blinking" style="color: var(--primary-accent)">INCOMING SECURE TRANSMISSION</h2>
+                <p class="instruction">TAP TO DECRYPT</p>
+            </div>
+        </div>
+
+        <!-- Boot Sequence Display -->
+        <div id="boot-sequence" class="boot-terminal">
+            <div class="terminal-content">
+                <!-- Log lines injected by JS -->
+            </div>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+
+        <!-- Mission Briefing Panel (Initially Hidden) -->
+        <main id="mission-briefing" class="panel mission-panel hidden">
+            <div class="panel-header">
+                <span class="panel-title">/// TOP SECRET BRIEFING</span>
+                <span class="status-indicator blinking">EYES ONLY</span>
+            </div>
+
+            <div class="panel-body">
+
+                <!-- Dynamic Content Area -->
+                <div class="briefing-text-container">
+                    <p class="greeting-line typing-effect"></p>
+                    <div class="mission-details">
+                        <!-- Briefing text injected here -->
+                    </div>
+                </div>
+
+                <!-- Custom Message Section (Optional) -->
+                <div id="additional-intel" class="additional-intel hidden">
+                    <div class="intel-header">ADDITIONAL INTEL:</div>
+                    <p class="custom-msg-content typing-effect-delayed"></p>
+                </div>
+
+                <!-- Action Area -->
+                <div class="mission-actions">
+                    <div class="countdown-display hidden" id="countdown-display">
+                        SELF-DESTRUCT IN: <span id="timer">5.00</span>
+                    </div>
+
+                    <div class="button-group" id="decision-buttons">
+                        <button id="accept-btn" class="btn primary-btn pulse-hover">
+                            <span class="btn-content">ACCEPT MISSION</span>
+                        </button>
+                        <button id="decline-btn" class="btn secondary-btn">
+                            <span class="btn-content">DECLINE</span>
+                        </button>
+                    </div>
+
+                    <!-- Response Area -->
+                    <div id="response-message" class="response-message hidden"></div>
+                </div>
+
+            </div>
+
+            <div class="panel-footer">
+                <div class="security-level">ENCRYPTION: QUANTUM-256</div>
+                <div class="signature">IMF HEADQUARTERS</div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- Important: Run via Live Server to avoid CORS issues with ES Modules -->
+
+    <!-- Vendors (Global Variables) - Must load before Modules -->
+    <script src="assets/vendors/gsap.min.js"></script>
+    <script src="assets/vendors/typed.min.js"></script>
+
+    <!-- Config -->
+    <script type="module" src="assets/js/config.js"></script>
+
+    <!-- Logic Modules -->
+    <script type="module" src="assets/js/effects.js"></script>
+    <script type="module" src="assets/js/selfDestruct.js"></script>
+
+    <!-- Main Controller -->
+    <script type="module" src="assets/js/mission.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMF Secure Uplink | Link Expired</title>
+
+    <!-- IMF Fonts & Animations -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/ui.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+</head>
+
+<body class="expired-body" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+
+    <!-- Background Grid / Overlay -->
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <div class="container center-content">
+
+        <!-- Expired Message Panel -->
+        <main id="expired-panel" class="panel fade-in-up"
+            style="max-width: 500px; width: 100%; border-color: var(--secondary-accent);">
+            <div class="panel-header">
+                <span class="panel-title">/// SYSTEM STATUS</span>
+                <span class="status-indicator" style="color: var(--secondary-accent);">TERMINATED</span>
+            </div>
+
+            <div class="panel-body">
+                <div class="message-container" style="text-align: center; padding: 2rem 0;">
+                    <div class="icon-expired glitch-effect"
+                        style="font-size: 3rem; margin-bottom: 1rem; color: var(--secondary-accent);">
+                        🚫
+                    </div>
+                    <h2 class="terminal-text" style="color: var(--secondary-accent); margin-bottom: 1rem;">UPLINK
+                        TERMINATED</h2>
+                    <p class="terminal-text">
+                        THIS MESSAGE HAS SELF-DESTRUCTED.
+                    </p>
+                    <p class="terminal-text" style="font-size: 0.8rem; margin-top: 2rem; opacity: 0.7;">
+                        NO TRACE REMAINS.
+                    </p>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <div class="security-level">CONNECTION: CLOSED</div>
+                <div class="id-hash">LOGS PURGED</div>
+            </div>
+        </main>
+
+    </div>
+
+</body>
+
+</html>

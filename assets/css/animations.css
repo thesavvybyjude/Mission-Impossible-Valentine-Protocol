@@ -1,0 +1,190 @@
+/**
+ * Animations & Keyframes
+ * Transitions, glitches, and cinematic effects.
+ */
+
+/* --- Fade Transitions --- */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Glitch Effects --- */
+.glitch-text {
+    position: relative;
+    /* Glitch effect relies on ::before and ::after pseudo-elements */
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    /* Matches background to "cut" the text */
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 var(--primary-accent);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -1px 0 var(--secondary-accent);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+}
+
+.glitch-hover:hover {
+    animation: glitch-anim-1 0.3s infinite;
+}
+
+/* Highly chaotic glitch keyframes */
+@keyframes glitch-anim-1 {
+    0% {
+        clip: rect(20px, 9999px, 80px, 0);
+    }
+
+    20% {
+        clip: rect(130px, 9999px, 160px, 0);
+    }
+
+    40% {
+        clip: rect(60px, 9999px, 100px, 0);
+    }
+
+    60% {
+        clip: rect(10px, 9999px, 40px, 0);
+    }
+
+    80% {
+        clip: rect(150px, 9999px, 180px, 0);
+    }
+
+    100% {
+        clip: rect(90px, 9999px, 120px, 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip: rect(120px, 9999px, 150px, 0);
+    }
+
+    20% {
+        clip: rect(10px, 9999px, 50px, 0);
+    }
+
+    40% {
+        clip: rect(160px, 9999px, 180px, 0);
+    }
+
+    60% {
+        clip: rect(40px, 9999px, 90px, 0);
+    }
+
+    80% {
+        clip: rect(100px, 9999px, 130px, 0);
+    }
+
+    100% {
+        clip: rect(50px, 9999px, 80px, 0);
+    }
+}
+
+/* --- Pulse Effects --- */
+.pulse-hover:hover {
+    animation: pulse 1s infinite;
+}
+
+.blinking {
+    animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(122, 14, 26, 0.7);
+    }
+
+    70% {
+        transform: scale(1.02);
+        box-shadow: 0 0 10px 10px rgba(122, 14, 26, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(122, 14, 26, 0);
+    }
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+/* --- Utilities --- */
+.hidden {
+    display: none !important;
+}
+
+.critical-alert {
+    animation: redAlert 0.5s infinite alternate;
+}
+
+@keyframes redAlert {
+    from {
+        box-shadow: inset 0 0 0 rgba(255, 0, 0, 0);
+    }
+
+    to {
+        box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.5);
+    }
+}
+
+/* Scanline scrolling */
+@keyframes scanlineScroll {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+}

@@ -1,0 +1,409 @@
+/**
+ * UI Components & Layout
+ * Styles for panels, buttons, forms, and overlays.
+ */
+
+/* --- Layout Containers --- */
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.center-content {
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Panels --- */
+.panel {
+    background-color: rgba(53, 13, 10, 0.85);
+    /* --surface-color with opacity */
+    border: var(--border-width) solid var(--primary-accent);
+    border-radius: var(--panel-radius);
+    width: 100%;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(122, 14, 26, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.panel-header {
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid var(--primary-accent);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.panel-body {
+    padding: 2rem;
+}
+
+.panel-footer {
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--primary-accent);
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+/* --- Forms & Inputs --- */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-accent);
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.terminal-input,
+.terminal-select,
+.terminal-textarea {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--primary-accent);
+    color: var(--text-main);
+    padding: 0.8rem 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 4px;
+    /* Slight roundness */
+    transition: all 0.3s ease;
+}
+
+.terminal-input:focus,
+.terminal-select:focus,
+.terminal-textarea:focus {
+    outline: none;
+    border-color: var(--secondary-accent);
+    box-shadow: 0 0 8px var(--secondary-accent);
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.input-error {
+    border-color: var(--error-color);
+    box-shadow: 0 0 8px var(--error-color);
+    animation: shake 0.4s ease-in-out;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.primary-btn {
+    background-color: var(--primary-accent);
+    color: var(--text-main);
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-accent);
+    box-shadow: 0 0 15px var(--secondary-accent);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 1px solid var(--secondary-accent);
+    color: var(--secondary-accent);
+}
+
+.secondary-btn:hover {
+    background-color: rgba(168, 35, 67, 0.1);
+    color: var(--text-main);
+    box-shadow: 0 0 10px rgba(168, 35, 67, 0.5);
+}
+
+.form-actions,
+.mission-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* --- Visual Overlays (Cinema) --- */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.1) 50%,
+            rgba(0, 0, 0, 0.1));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9998;
+    animation: scanlineScroll 10s linear infinite;
+    opacity: 0.6;
+}
+
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.08;
+}
+
+/* --- Boot Terminal Specifics --- */
+.boot-terminal {
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+    background: #000;
+    border: 2px solid var(--text-main);
+    padding: 2rem;
+    font-family: monospace;
+    color: var(--primary-accent);
+    /* Default boot color, overridden by JS */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.loading-bar-container {
+    width: 100%;
+    height: 10px;
+    border: 1px solid var(--text-main);
+    margin-top: 1rem;
+}
+
+.loading-bar {
+    width: 0%;
+    height: 100%;
+    background-color: var(--text-main);
+    transition: width 0.2s ease-out;
+}
+
+/* --- Mission Result Panel --- */
+.link-result-panel {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px dashed var(--secondary-accent);
+}
+
+.mission-brief-line {
+    border-left: 4px solid var(--primary-accent);
+    padding-left: 1rem;
+}
+
+.url-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.url-input {
+    flex-grow: 1;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--secondary-accent);
+    cursor: text;
+}
+
+/* --- Responsive & Mobile fixes --- */
+.terminal-input,
+.terminal-textarea {
+    text-transform: uppercase;
+    /* Force uppercase visual */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .panel-body {
+        padding: 1.5rem;
+    }
+
+    h1.glitch-text {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .boot-terminal,
+    .terminal-content {
+        font-size: 0.9rem;
+        /* Smaller text on mobile terminal */
+    }
+}
+
+/* --- Feedback Toast Notification --- */
+.feedback-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid var(--primary-accent);
+    padding: 1rem 1.5rem;
+    z-index: 10000;
+    max-width: 350px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    animation: slideInRight 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.feedback-toast.hiding {
+    animation: fadeOutRight 0.5s ease forwards;
+}
+
+.feedback-icon {
+    font-size: 1.5rem;
+}
+
+.feedback-content {
+    flex-grow: 1;
+}
+
+.feedback-title {
+    font-size: 0.8rem;
+    color: var(--secondary-accent);
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+}
+
+.feedback-message {
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+}
+
+/* --- Start Overlay --- */
+.start-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    /* Full cover */
+    z-index: 20000;
+    /* Highest */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.8s ease;
+}
+
+.start-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.lock-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px var(--primary-accent));
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.instruction {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    border: 1px solid var(--secondary-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.start-overlay:hover .instruction {
+    background: var(--secondary-accent);
+    color: var(--text-main);
+    box-shadow: 0 0 15px var(--secondary-accent);
+}
